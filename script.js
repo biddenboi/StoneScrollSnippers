@@ -39,15 +39,13 @@ let currComputerSelection = getRandomChoice();
  */
 
 function updateChoice(recipient) {
-    if (recipient == playerInputBox) {
-        currPlayerSelection = (currComputerSelection + 1) % 3;
+    if (recipient === playerInputBox) {
+        currPlayerSelection = (currPlayerSelection + 1) % 3;
         playerInputBox.src = getChosenImage(currPlayerSelection);
     }else {
         currComputerSelection = getRandomChoice();
         computerInputBox.src = getChosenImage(currComputerSelection);
     }
-
-    
 }
 
-playerInputBox.addEventListener("click", (event) => updateChoice(playerInputBox));
+playerInputBox.addEventListener("click", () => updateChoice(playerInputBox));

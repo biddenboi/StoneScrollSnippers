@@ -1,3 +1,8 @@
+const optionsButton = document.querySelector(".optionArea > button");
+const displayBox = document.querySelector(".result");
+const playerInputBox = document.querySelector(".playerChoice");
+const computerInputBox = document.querySelector(".computerChoice");
+
 const ROCK = 0;
 const PAPER = 1;
 const SCISSORS = 2;
@@ -25,11 +30,6 @@ function getChosenImage(choice) {
     if (choice == PAPER) return "./public/paper.png";
 }
 
-const optionsButton = document.querySelector(".optionArea > button");
-const displayBox = document.querySelector(".result");
-const playerInputBox = document.querySelector(".playerChoice");
-const computerInputBox = document.querySelector(".computerChoice");
-
 let currPlayerSelection = getRandomChoice();
 let currComputerSelection = getRandomChoice();
 
@@ -38,9 +38,18 @@ let currComputerSelection = getRandomChoice();
  * execute
  */
 
-playerInputBox.addEventListener("click", (event) => {
-    currPlayerSelection += 1;
-    currPlayerSelection %= 3;
+function updateChoice(recipient) {
+    if (recipient == "player") {
+        currPlayerSelection += 1;
+        currPlayerSelection %= 3;
+        playerInputBox.src = getChosenImage(currPlayerSelection);
+    }else {
+        currComputerSelection = getRandomChoice();
+        computerInputBox.src = getChosenImage(currComputerSelection);
+    }
 
+}
+
+playerInputBox.addEventListener("click", (event) => {
     
 })

@@ -14,8 +14,8 @@ const LOSE = -1;
 
 function playGame(playerChoice, botChoice) {
     if (playerChoice === botChoice) return TIE;
-    if (playerChoice < botChoice || playerChoice === SCISSORS && botChoice === ROCK) return LOSE;
-    return WIN;
+    if (playerChoice < botChoice || playerChoice === SCISSORS && botChoice === ROCK) return WIN;
+    return LOSE;
 }
 
 //if val is equal to 3, set as 2.
@@ -32,6 +32,22 @@ function getChosenImage(choice) {
 
 let currPlayerSelection = getRandomChoice();
 let currComputerSelection = getRandomChoice();
+let scoreCount = 0;
+
+
+function calculateResults() {
+    let results = playGame(currPlayerSelection, currComputerSelection);
+    if (results === WIN) {
+        scoreCount++;
+        displayBox.textContent = "Congrats thee winneth, the sc're is anon ";
+    }else if (results === TIE) {
+        displayBox.textContent = "Alas t is but a tieth, the sc're is anon ";
+    }else {
+        scoreCount--;
+        displayBox.textContent = "Aww thee hath lost, bett'r luck next timeth, thy points art ";
+    }
+    displayBox.textContent += scoreCount;
+}
 
 
 
@@ -54,5 +70,5 @@ function updateChoice(recipient) {
 playerInputBox.addEventListener("click", () => updateChoice(playerInputBox));
 optionsButton.addEventListener("click", () => {
     updateChoice(computerInputBox);
-
+    calculateResults();
 });

@@ -15,8 +15,8 @@ const LOSE = -1;
 
 function playGame(playerChoice, computerChoice) {
     if (playerChoice == computerChoice) return TIE;
-    if ((playerChoice + 1) % 3 === computerChoice) return LOSE;
-    return WIN;
+    if ((playerChoice + 1) % 3 === computerChoice) return WIN;
+    return LOSE;
 }
 
 //if val is equal to 3, set as 2.

@@ -8,3 +8,17 @@ function playGame(playerChoice, botChoice) {
     return 1;
 }
 
+function getRandomChoice() {
+    let val;
+    return (val = Math.floor(Math.round() * 3) == 3) ? 2 : val;
+}
+
+const optionsButton = document.querySelector(".optionArea > button");
+const displayBox = document.querySelector(".result");
+const playerInputBox = document.querySelector(".playerChoice");
+const computerInputBox = document.querySelector(".computerChoice");
+
+
+
+const currPlayerSelection = 
+const currPlayerSelection = 

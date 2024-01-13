@@ -13,21 +13,21 @@ const LOSE = -1;
 
 
 function playGame(playerChoice, botChoice) {
-    if (playerChoice == botChoice) return TIE;
-    if (playerChoice < botChoice || playerChoice == SCISSORS && botChoice == ROCK) return LOSE;
+    if (playerChoice === botChoice) return TIE;
+    if (playerChoice < botChoice || playerChoice === SCISSORS && botChoice === ROCK) return LOSE;
     return WIN;
 }
 
 //if val is equal to 3, set as 2.
 function getRandomChoice() {
     let val;
-    return (val = Math.floor(Math.round() * 3) == 3) ? SCISSORS : val;
+    return (val = Math.floor(Math.round() * 3) === 3) ? SCISSORS : val;
 }
 
 function getChosenImage(choice) {
-    if (choice == ROCK) return "./public/rock.png";
-    if (choice == SCISSORS) return "./public/scissors.png";
-    if (choice == PAPER) return "./public/paper.png";
+    if (choice === ROCK) return "./public/rock.png";
+    if (choice === SCISSORS) return "./public/scissors.png";
+    if (choice === PAPER) return "./public/paper.png";
 }
 
 let currPlayerSelection = getRandomChoice();
@@ -42,10 +42,15 @@ function updateChoice(recipient) {
     if (recipient === playerInputBox) {
         currPlayerSelection = (currPlayerSelection + 1) % 3;
         playerInputBox.src = getChosenImage(currPlayerSelection);
-    }else {
+    }
+    if (recipient === computerInputBox) {
         currComputerSelection = getRandomChoice();
         computerInputBox.src = getChosenImage(currComputerSelection);
     }
 }
 
 playerInputBox.addEventListener("click", () => updateChoice(playerInputBox));
+optionsButton.addEventListener("click", () => {
+    updateChoice(computerInputBox);
+
+});

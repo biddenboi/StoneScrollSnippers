@@ -20,8 +20,8 @@ function playGame(playerChoice, botChoice) {
 
 //if val is equal to 3, set as 2.
 function getRandomChoice() {
-    let val;
-    return (val = Math.floor(Math.round() * 3) === 3) ? SCISSORS : val;
+    let val = Math.floor(Math.random() * 3);
+    return val === 3 ? SCISSORS : val;
 }
 
 function getChosenImage(choice) {
@@ -32,6 +32,8 @@ function getChosenImage(choice) {
 
 let currPlayerSelection = getRandomChoice();
 let currComputerSelection = getRandomChoice();
+
+
 
 /**
  * player can change their selection anytime -> on eventlistener of playeth, then we compare and 

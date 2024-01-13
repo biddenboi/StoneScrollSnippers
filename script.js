@@ -7,15 +7,16 @@ const ROCK = 0;
 const PAPER = 1;
 const SCISSORS = 2;
 
+
 const WIN = 1;
 const TIE = 0;
 const LOSE = -1;
 
 
-function playGame(playerChoice, botChoice) {
-    if (playerChoice === botChoice) return TIE;
-    if (playerChoice < botChoice || playerChoice === SCISSORS && botChoice === ROCK) return WIN;
-    return LOSE;
+function playGame(playerChoice, computerChoice) {
+    if (playerChoice == computerChoice) return TIE;
+    if ((playerChoice + 1) % 3 === computerChoice) return LOSE;
+    return WIN;
 }
 
 //if val is equal to 3, set as 2.
@@ -72,3 +73,5 @@ optionsButton.addEventListener("click", () => {
     updateChoice(computerInputBox);
     calculateResults();
 });
+
+

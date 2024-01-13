@@ -9,6 +9,8 @@ body {
     display:flex;
     flex-direction: column;
     gap:75px;
+    align-items:center;
+    margin-top:10%;
 }
 
 h1 {
@@ -54,4 +56,8 @@ h1 {
 .optionArea > button:hover {
     color:rgba(0, 0, 0, 1.00);
     border: 2px solid rgba(0, 0, 0, 0.750);
+}
+
+.result {
+    margin:-55px;
 }
